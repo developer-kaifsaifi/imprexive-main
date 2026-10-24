@@ -4,6 +4,8 @@
 @import "tailwindcss";
 
 
+
+
 @theme {
   --font-dm: "DM Sans", sans-serif;
   --font-manrope: "Manrope", sans-serif;
@@ -13,57 +15,34 @@ body {
   font-family: var(--font-dm);
 }
 
-/* ========================================
-   IMPREXIVE — MODERN GRADIENT SCROLLBAR
-======================================== */
 
-/* Firefox fallback */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: #061A32;
+}
+
 html {
-  scrollbar-width: thin;
-  scrollbar-color: #B52BB5 #061A32;
+  scrollbar-gutter: auto !important;
 }
 
 body {
-  margin: 0;
-  scrollbar-width: thin;
-  scrollbar-color: #B52BB5 #061A32;
+  overflow-x: clip;
 }
 
-/* Chrome, Edge, Safari */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Keep the slim scrollbar */
+html::-webkit-scrollbar {
+  width: 3px !important;
 }
 
-/* Remove all scrollbar buttons and arrows */
-html::-webkit-scrollbar-button,
-body::-webkit-scrollbar-button,
-html::-webkit-scrollbar-button:single-button,
-body::-webkit-scrollbar-button:single-button,
-html::-webkit-scrollbar-button:vertical:start:decrement,
-html::-webkit-scrollbar-button:vertical:end:increment,
-body::-webkit-scrollbar-button:vertical:start:decrement,
-body::-webkit-scrollbar-button:vertical:end:increment {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
+html::-webkit-scrollbar-track {
   background: transparent !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
 }
 
-/* Track */
-html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-  background: #061A32;
-}
-
-/* Gradient thumb — exact brand colors */
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
     #7334E4 0%,
@@ -71,66 +50,20 @@ body::-webkit-scrollbar-thumb {
     #B52BB5 42%,
     #ED2689 61%,
     #FF9222 100%
-  );
-  border-radius: 20px;
-  border: 2px solid #061A32;
-  background-clip: padding-box;
+  ) !important;
+  border-radius: 999px;
 }
 
-/* Hover effect */
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    180deg,
-    #FF9222 0%,
-    #ED2689 39%,
-    #B52BB5 65%,
-    #7334E4 100%
-  );
-  border-radius: 20px;
-  border: 1px solid #061A32;
-  background-clip: padding-box;
-}
 
-/* Remove corner */
-html::-webkit-scrollbar-corner,
-body::-webkit-scrollbar-corner {
-  background: #061A32;
-}
-
-/* Also style nested scrollable containers */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #B52BB5 #061A32;
-}
-
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-*::-webkit-scrollbar-button {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-}
-
-*::-webkit-scrollbar-track {
-  background: #061A32;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    #7334E4 0%,
-    #8B31D3 23%,
-    #B52BB5 42%,
-    #ED2689 61%,
-    #FF9222 100%
-  );
-  border-radius: 20px;
-  border: 2px solid #061A32;
-  background-clip: padding-box;
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    cursor: none !important;
+  }
 }

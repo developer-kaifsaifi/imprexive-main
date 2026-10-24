@@ -1,65 +1,109 @@
-
-// import GradientButton from '../components/GradientButton'
-
-// export default function Hero () {
-//   return (
-//     <section className=''>
-       
-//         <div className="px-24 relative  max-w-full min-h-screen bg-[url('/assets/images/hero.webp')] bg-cover bg-[center_20%] " >
-//         <div className='  '> <div className='mb-11 w-200 absolute top-16 leading-25 h-100 text-[5rem] text-white font-extrabold font-manrope'><h1>Good events</h1><h1> get noticed.</h1> <h1>Great experiences</h1><h1>stay with you.</h1> </div>
-
-//         </div>
-//         <div className='absolute top-129 flex items-center justify-center '>
-//             <div className='w-130 leading-tight h-20 text-[1.5rem] font-extralight text-white font-dm  '><h4>We bring brands and people together.</h4>
-//             <h4>With bold ideas. Thoughtful details.</h4>
-//             <h4>And moments that mean something.</h4>
-//             </div>
-//             <div className=''><GradientButton href="#contact" className="mt-3">
-//           Let's Create Together
-//         </GradientButton></div>
-//         </div>
-//         </div>
-
-//     </section>
-//   )
-// }
-
-
-// after responsive
-
+import { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import GradientButton from "../components/GradientButton";
 
 export default function Hero() {
-  return (
-    <section>
-      <div className="relative h-[90vh] md:min-h-screen max-w-full overflow-hidden bg-[url('/assets/images/hero.webp')] bg-cover bg-[center_20%] px-5 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const reduceMotion = useReducedMotion();
 
-        {/* Black Overlay */}
+  const fadeUp = {
+    hidden: {
+      opacity: 0,
+      y: reduceMotion ? 0 : 28,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: reduceMotion ? 0 : 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  return (
+    <section className="w-full">
+      <div className="relative flex min-h-[720px] w-full overflow-hidden bg-[#061A32] sm:min-h-[780px] lg:min-h-screen">
+        {/* Hero Background Image */}
+        <img
+          src="/assets/images/hero.webp"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          onLoad={() => setImageLoaded(true)}
+          className={`absolute inset-0 h-full w-full object-cover object-[center_20%] transition-opacity duration-500 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Heading */}
-        <div className="absolute left-5 right-5 top-20 z-10 sm:left-8 md:left-12 lg:left-16 xl:left-24 xl:top-16">
-          <h1 className="mb-11 font-manrope text-[clamp(2.5rem,5.2vw,5rem)] font-extrabold leading-[1.12] text-white">
-            <span className="block">Good events</span>
-            <span className="block">get noticed.</span>
-            <span className="block">Great experiences</span>
-            <span className="block">stay with you.</span>
-          </h1>
+        {/* Content */}
+        <div className="relative z-10 flex w-full flex-col px-5 pb-16 pt-24 sm:px-8 sm:pt-28 md:px-12 lg:justify-center lg:px-16 lg:py-28 xl:px-24">
+          {/* Heading */}
+          <motion.h1
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: reduceMotion ? 0 : 0.12,
+                },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            className="max-w-5xl font-manrope text-[clamp(2.5rem,5.2vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-white"
+          >
+            {[
+              "Good events",
+              "get noticed.",
+              "Great experiences",
+              "stay with you.",
+            ].map((line) => (
+              <motion.span
+                key={line}
+                variants={fadeUp}
+                className="block"
+              >
+                {line}
+              </motion.span>
+            ))}
+          </motion.h1>
+
+          {/* Description + CTA */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: reduceMotion ? 0 : 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: reduceMotion ? 0 : 0.7,
+                  delay: reduceMotion ? 0 : 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              },
+            }}
+            className="mt-10 flex flex-col items-start gap-6 lg:mt-12 lg:flex-row lg:items-center lg:gap-10"
+          >
+            <div className="font-dm text-base font-light leading-relaxed text-white sm:text-lg lg:max-w-[520px] lg:text-xl xl:text-2xl">
+              <p>We bring brands and people together.</p>
+              <p>With bold ideas. Thoughtful details.</p>
+              <p>And moments that mean something.</p>
+            </div>
+
+            <div className="shrink-0">
+              <GradientButton href="#contact" className="mt-0">
+                Let's Create Together
+              </GradientButton>
+            </div>
+          </motion.div>
         </div>
-
-        {/* Description + Button */}
-        <div className="absolute left-5 right-5 top-[480px] z-10 flex flex-col items-start gap-6 sm:left-8 sm:right-8 md:left-12 md:right-12 lg:left-16 lg:right-16 lg:top-[540px] lg:flex-row lg:items-center  xl:left-24 xl:right-24 xl:top-[520px]">
-          <div className="font-dm text-base font-extralight leading-tight text-white sm:text-lg lg:w-[520px] lg:text-xl xl:w-[520px] xl:text-2xl">
-            <h4>We bring brands and people together.</h4>
-            <h4>With bold ideas. Thoughtful details.</h4>
-            <h4>And moments that mean something.</h4>
-          </div>
-
-          <GradientButton href="#contact" className="mt-0 shrink-0">
-            Let's Create Together
-          </GradientButton>
-        </div>
-
       </div>
     </section>
   );
