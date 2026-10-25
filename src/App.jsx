@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Services from "./components/Services";
 import ExperiencePage from "./pages/ExperiencePage";
 import Contact from "./sections/Contact";
+import NotFound from "./pages/NotFound";
 
 
 export default function App() {
@@ -16,7 +17,7 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/experience" element={<ExperiencePage/>} />
         <Route path="/contact" element={<Contact/>} />
-        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="*" element={<NotFound/>} />
       </Route>
     </Routes>
   );

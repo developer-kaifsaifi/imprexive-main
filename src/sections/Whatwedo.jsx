@@ -133,7 +133,7 @@ export default function Whatwedo() {
             whileHover={reduceMotion ? {} : { y: -3 }}
             whileTap={reduceMotion ? {} : { scale: 0.98 }}
           >
-            <GradientButton href="#what-we-do" className="w-fit">
+            <GradientButton href="/experience" className="w-fit">
               Discover our expertise
             </GradientButton>
           </motion.div>

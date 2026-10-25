@@ -84,7 +84,7 @@ export default function ExperiencePage() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <GradientButton>Start a Conversation</GradientButton>
+            <GradientButton href="/contact">Start a Conversation</GradientButton>
           </Reveal>
         </div>
       </section>

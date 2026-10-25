@@ -1,38 +1,9 @@
 
-// import { motion } from "motion/react";
-// import { ArrowUpRight } from "lucide-react";
-
-// export default function GradientButton({
-//   children = "Let's Create Together",
-//   href = "#contact",
-//   showArrow = true,
-//   className = "",
-// }) {
-//   return (
-//     <motion.a
-//       href={href}
-//       whileHover={{ scale: 1.04 }}
-//       whileTap={{ scale: 0.97 }}
-//       transition={{ duration: 0.2, ease: "easeOut" }}
-//       className={`inline-flex items-center justify-center gap-2 rounded-[10px] bg-gradient-to-r from-[#A64DE3] via-[#D84F9C] to-[#F47745] px-7 py-4 font-dm text-5 font-semibold text-white shadow-sm transition-shadow duration-300 hover:shadow-lg ${className}`}
-//     >
-//       <span>{children}</span>
-
-//       {showArrow && (
-//         <ArrowUpRight
-//           size={18}
-//           strokeWidth={1.8}
-//           aria-hidden="true"
-//         />
-//       )}
-//     </motion.a>
-//   );
-// }
-
-
-
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+
+const MotionLink = motion.create(Link);
 
 export default function GradientButton({
   children = "Let's Create Together",
@@ -44,11 +15,11 @@ export default function GradientButton({
     "linear-gradient(90deg, #A64DE3 0%, #D84F9C 50%, #F47745 100%)";
 
   return (
-    <motion.a
-      href={href}
+    <MotionLink
+      to={href}
+      whileHover="hover"
       initial="rest"
       animate="rest"
-      whileHover="hover"
       className={`relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-[10px] border border-[#B52BB5] px-7 py-4 font-dm text-5 font-semibold shadow-sm ${className}`}
     >
       {/* Original gradient background */}
@@ -76,7 +47,7 @@ export default function GradientButton({
         className="pointer-events-none absolute inset-0 z-[1] bg-white"
       />
 
-      {/* Button content */}
+      {/* Button text */}
       <motion.span
         variants={{
           rest: { color: "#FFFFFF" },
@@ -88,6 +59,7 @@ export default function GradientButton({
         {children}
       </motion.span>
 
+      {/* Arrow animation */}
       {showArrow && (
         <motion.span
           variants={{
@@ -97,9 +69,13 @@ export default function GradientButton({
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="relative z-10"
         >
-          <ArrowUpRight size={18} strokeWidth={1.8} aria-hidden="true" />
+          <ArrowUpRight
+            size={18}
+            strokeWidth={1.8}
+            aria-hidden="true"
+          />
         </motion.span>
       )}
-    </motion.a>
+    </MotionLink>
   );
 }

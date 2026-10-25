@@ -98,10 +98,10 @@ export default function Hero() {
             </div>
 
             <div className="shrink-0">
-              <GradientButton href="#contact" className="mt-0">
-                Let's Create Together
-              </GradientButton>
-            </div>
+  <GradientButton href="/contact" className="mt-0">
+    Let's Create Together
+  </GradientButton>
+</div>
           </motion.div>
         </div>
       </div>

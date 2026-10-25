@@ -128,7 +128,7 @@ export default function Services() {
               </p>
 
               <a
-                href="#expertise"
+                href="/experience"
                 className="group flex w-fit shrink-0 items-center gap-3 text-sm font-bold transition-colors hover:text-[#7334E4]"
               >
                 Explore our expertise
@@ -256,10 +256,9 @@ export default function Services() {
             </p>
           </Reveal>
 
-          <GradientButton>Start a Conversation 
-              </GradientButton>
-              
-           
+          <GradientButton href="/contact">
+            Start a Conversation
+          </GradientButton>
         </div>
       </section>
       <FAQ/>
