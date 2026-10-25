@@ -365,7 +365,7 @@ export default function About() {
               </h2>
             </Reveal>
 
-            <GradientButton>Start a Conversation</GradientButton>
+            <GradientButton href='/contact' >Start a Conversation</GradientButton>
           </div>
         </section>
       </main>

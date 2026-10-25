@@ -11,9 +11,10 @@ export default function GradientButton({
   showArrow = true,
   className = "",
 }) {
-  const gradient =
-    "linear-gradient(90deg, #A64DE3 0%, #D84F9C 50%, #F47745 100%)";
 
+const gradient =
+  "linear-gradient(90deg, #7334E4 0%, #8B31D3 23%, #B52BB5 42%, #ED2689 61%, #FF9222 100%)";
+  
   return (
     <MotionLink
       to={href}

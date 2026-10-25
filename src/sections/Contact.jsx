@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -10,7 +11,7 @@ const services = [
 ];
 
 const gradient =
-  "linear-gradient(90deg,#7334E4 0%,#8B31D3 23%,#B52BB5 42%,#ED2689 61%,#FF9222 100%)";
+  "linear-gradient(90deg, #7334E4 0%, #8B31D3 23%, #B52BB5 42%, #ED2689 61%, #FF9222 100%)";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -59,6 +60,7 @@ ${formData.idea}
 
     link.href = url;
     link.download = "imprexive-enquiry-brief.txt";
+
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -121,21 +123,26 @@ ${formData.idea}
 
           <motion.h1
             variants={fadeUp}
-            className="font-manrope text-[42px] font-semibold leading-[1.08] tracking-[-1.5px] sm:text-[56px] lg:text-[64px]"
+            className="overflow-visible font-manrope text-[42px] font-semibold leading-[1.15] tracking-[-1.5px] sm:text-[56px] lg:text-[64px]"
           >
             Got a brief?
             <br />
             Or just a
             <br />
+
             <motion.span
-              className="inline-block bg-clip-text text-transparent"
+              className="inline-block bg-clip-text pb-[0.12em] text-transparent"
               style={{
                 backgroundImage: gradient,
                 backgroundSize: "200% 100%",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "0% 50%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
               animate={
                 reduceMotion
-                  ? {}
+                  ? { backgroundPosition: "50% 50%" }
                   : {
                       backgroundPosition: [
                         "0% 50%",
@@ -145,7 +152,7 @@ ${formData.idea}
                     }
               }
               transition={{
-                duration: 5,
+                duration: 6,
                 repeat: Infinity,
                 ease: "linear",
               }}
@@ -317,6 +324,7 @@ ${formData.idea}
               className="mt-7 inline-flex w-full items-center justify-center rounded-md bg-[#061A32] px-6 py-4 font-dm text-sm font-medium text-white transition-colors duration-300 hover:bg-[#142F4F] sm:w-auto"
             >
               Let’s Create Together
+
               <motion.span
                 className="ml-3 inline-block"
                 aria-hidden="true"

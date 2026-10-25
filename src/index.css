@@ -3,7 +3,17 @@
 
 @import "tailwindcss";
 
+@import "tailwindcss";
 
+:root {
+  --navy: #061a32;
+  --pink: #f51b79;
+  --purple: #6733e9;
+  --orange: #ff9420;
+  --muted: #5d6674;
+  --line: #e1e4e9;
+  --gradient: linear-gradient(110deg, #6836ed 0%, #ec238c 55%, #ff9222 100%);
+}
 
 
 @theme {

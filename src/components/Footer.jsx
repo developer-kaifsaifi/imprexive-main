@@ -61,7 +61,7 @@ export default function Footer() {
 
         <div className="mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 font-dm text-xs text-white/75 sm:text-sm">
           <a
-            href="/privacy/"
+            href="/privacy"
             className="transition-colors hover:text-white"
           >
             Privacy Policy
@@ -70,7 +70,7 @@ export default function Footer() {
           <span aria-hidden="true">|</span>
 
           <a
-            href="/terms/"
+            href="/terms"
             className="transition-colors hover:text-white"
           >
             Terms & Conditions

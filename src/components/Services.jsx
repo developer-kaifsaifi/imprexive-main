@@ -59,12 +59,42 @@ function Eyebrow({ children }) {
 }
 
 function GradientText({ children }) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <span className="bg-gradient-to-r from-[#7334E4] via-[#B52BB5] to-[#FF9222] bg-clip-text font-extrabold text-transparent">
+    <motion.span
+      className="inline-block overflow-visible bg-clip-text pb-[0.14em] pr-[0.04em] font-extrabold text-transparent"
+      style={{
+        backgroundImage:
+          "linear-gradient(90deg, #7334E4 0%, #8B31D3 23%, #B52BB5 42%, #ED2689 61%, #FF9222 100%)",
+        backgroundSize: "200% 100%",
+        backgroundPosition: "0% 50%",
+        backgroundRepeat: "no-repeat",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+      }}
+      animate={
+        reduceMotion
+          ? { backgroundPosition: "50% 50%" }
+          : {
+              backgroundPosition: [
+                "0% 50%",
+                "100% 50%",
+                "0% 50%",
+              ],
+            }
+      }
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+    >
       {children}
-    </span>
+    </motion.span>
   );
 }
+
 
 function Reveal({ children, delay = 0, className = "" }) {
   const reduceMotion = useReducedMotion();

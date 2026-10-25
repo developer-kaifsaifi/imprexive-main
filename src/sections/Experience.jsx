@@ -1,3 +1,5 @@
+
+
 import { useState } from "react";
 import {
   motion,
@@ -38,7 +40,7 @@ const categories = [
 ];
 
 const gradient =
-  "linear-gradient(90deg,#7334E4 0%,#8B31D3 23%,#B52BB5 42%,#ED2689 61%,#FF9222 100%)";
+  "linear-gradient(90deg, #7334E4 0%, #8B31D3 23%, #B52BB5 42%, #ED2689 61%, #FF9222 100%)";
 
 function ExperienceCard({ item, reduceMotion }) {
   return (
@@ -73,7 +75,7 @@ function ExperienceCard({ item, reduceMotion }) {
 
         <span
           className="absolute left-3 top-3 max-w-[calc(100%-24px)] px-3 py-2 font-dm text-[9px] font-semibold tracking-[0.08em] text-white sm:left-4 sm:top-4"
-          style={{ background: gradient }}
+          style={{ backgroundImage: gradient }}
         >
           {item.category}
         </span>
@@ -90,7 +92,7 @@ function ExperienceCard({ item, reduceMotion }) {
   );
 }
 
-export default function Experience () {
+export default function Experience() {
   const [active, setActive] = useState("All experiences");
   const reduceMotion = useReducedMotion();
 
@@ -167,29 +169,30 @@ export default function Experience () {
             const isActive = active === category;
 
             return (
-              <motion.button
-                key={category}
-                type="button"
-                onClick={() => setActive(category)}
-                aria-pressed={isActive}
-                whileTap={reduceMotion ? {} : { scale: 0.96 }}
-                transition={{ duration: 0.2 }}
-                className={`shrink-0 rounded-full border px-4 py-2 font-dm text-xs transition-colors duration-300 sm:text-sm ${
-                  isActive
-                    ? "border-transparent text-white"
-                    : "border-[#D9D9DF] bg-white text-[#555B66] hover:border-[#A338E8] hover:text-[#A338E8]"
-                }`}
-                style={
-                  isActive
-                    ? {
-                        background: gradient,
-                        borderColor: "transparent",
-                      }
-                    : undefined
-                }
-              >
-                {category}
-              </motion.button>
+             <motion.button
+  key={category}
+  type="button"
+  onClick={() => setActive(category)}
+  aria-pressed={isActive}
+  whileTap={reduceMotion ? {} : { scale: 0.96 }}
+  transition={{ duration: 0.2 }}
+  className={`shrink-0 rounded-full border px-4 py-2 font-dm text-xs transition-colors duration-300 sm:text-sm ${
+    isActive
+      ? "border-transparent text-white"
+      : "border-[#D9D9DF] bg-white text-[#555B66] hover:border-[#A338E8] hover:text-[#A338E8]"
+  }`}
+  style={
+    isActive
+      ? {
+          background: gradient,
+          borderColor: "transparent",
+          backgroundClip: "padding-box",
+        }
+      : undefined
+  }
+>
+  {category}
+</motion.button>
             );
           })}
         </motion.div>
@@ -239,7 +242,7 @@ export default function Experience () {
 
                   <span
                     className="absolute left-4 top-4 px-3 py-2 font-dm text-[9px] font-semibold tracking-[0.08em] text-white sm:left-6 sm:top-6 sm:text-[10px]"
-                    style={{ background: gradient }}
+                    style={{ backgroundImage: gradient }}
                   >
                     {featured.category}
                   </span>
