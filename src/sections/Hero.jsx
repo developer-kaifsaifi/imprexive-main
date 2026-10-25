@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import GradientButton from "../components/GradientButton";
+import GradientButton from "../components/GradientButton.jsx";
 
 export default function Hero() {
   const [imageLoaded, setImageLoaded] = useState(false);

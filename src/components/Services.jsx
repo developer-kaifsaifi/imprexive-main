@@ -1,8 +1,8 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
-import GradientButton from "./GradientButton";
-import FAQ from "./FAQ";
+import GradientButton from "./GradientButton.jsx";
+import FAQ from "./FAQ.jsx";
 
 const services = [
   {

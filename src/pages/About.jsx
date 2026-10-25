@@ -15,7 +15,7 @@ import {
   Plus,
   Sparkles,
 } from "lucide-react";
-import GradientButton from "../components/GradientButton";
+import GradientButton from "../components/GradientButton.jsx";
 
 const navigation = [
   { label: "Who We Are", href: "/about/" },

@@ -1,8 +1,8 @@
 
 import { motion, useReducedMotion } from "motion/react";
-import Experience from "../sections/Experience";
-import GradientButton from "../components/GradientButton";
-import FAQ from "../components/FAQ";
+import Experience from "../sections/Experience.jsx";
+import GradientButton from "../components/GradientButton.jsx";
+import FAQ from "../components/FAQ.jsx";
 
 const gradient =
   "linear-gradient(90deg,#7334E4 0%,#8B31D3 23%,#B52BB5 42%,#ED2689 61%,#FF9222 100%)";
